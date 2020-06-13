@@ -102,4 +102,14 @@ export default {
     }
   }
 }
+@media all and (max-width: 768px) {
+  .dropdown {
+    margin-right: 10px;
+  }
+}
+@media all and (max-width: 320px) {
+  .dropdown {
+    margin-right: 40px;
+  }
+}
 </style>

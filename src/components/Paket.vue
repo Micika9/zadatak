@@ -73,11 +73,13 @@ export default {
 
   computed: {
     oldPrice () {
-      return this.formatMoney(this.paket.prices.old_price_recurring[this.contractLength]) || null
+      const price = this.paket.prices.old_price_recurring[this.contractLength]
+      return price ? this.formatMoney(price) : null
     },
 
     price () {
-      return this.formatMoney(this.paket.prices.price_recurring[this.contractLength])
+      const price = this.paket.prices.price_recurring[this.contractLength]
+      return price ? this.formatMoney(price) : null
     },
 
     tvCategoryItems () {
@@ -102,3 +104,202 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.product {
+  width: 340px;
+  margin-right: 30px;
+  height: 100%;
+  padding: 0 15px;
+  margin-top: 60px;
+  background-color: #f7f3eb;
+  border-radius: 10px;
+  position: relative;
+  .featured {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    height: 50px;
+    background-color: #f7f3eb;
+    width: 100%;
+    padding: 0 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    p {
+      display: block;
+      width: 100%;
+      line-height: 40px;
+      border-bottom: 1px solid #d4d4d4;
+      font-size: 15px;
+      color: #742d6c;
+      text-align: center;
+    }
+  }
+  &:last-of-type {
+    margin-right: 0;
+  }
+  .text {
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #d3d3d3;
+    h2 {
+      width: 200px;
+      font-size: 38px;
+      line-height: 50px;
+      text-align: center;
+      margin: 55px auto;
+      color: #742d6c;
+    }
+    &:first-child {
+      height: 106px;
+    }
+  }
+  .tv {
+    width: 100%;
+    height: 190px;
+    border-bottom: 1px solid #d3d3d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 45px;
+      height: 45px;
+      line-height: 40px;
+    }
+    ul {
+      width: 100%;
+      margin: 0 50px 0;
+      li {
+        color: #102542;
+        font-size: 15px;
+      }
+    }
+  }
+  .net {
+    width: 100%;
+    height: 110px;
+    border-bottom: 1px solid #d3d3d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 45px;
+      height: 45px;
+      line-height: 40px;
+    }
+    ul {
+      width: 100%;
+      margin: 0 30px 0;
+      li {
+        color: #102542;
+        font-size: 15px;
+      }
+    }
+  }
+  .promotions {
+    background-color: #ffff;
+    border-bottom: 1px solid #d3d3d3;
+    img {
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+    }
+    span {
+      display: inline-block;
+      color: #742d6c;
+      font-size: 12px;
+      margin: 30px 15px 0;
+    }
+  }
+  .price {
+    width: 100%;
+    height: 140px;
+    margin: 40px 0;
+    .old-price {
+      margin-bottom: 20px;
+      .old {
+        font-size: 18px;
+        color: #742d6c;
+        line-height: 30px;
+      }
+      .current {
+        margin-left: 100px;
+        font-size: 22px;
+        color: #742d6c;
+      }
+    }
+    .order {
+      width: 100%;
+      padding: 15px;
+      margin: 30px auto;
+      background-color: #742d6c;
+      cursor: pointer;
+      border-radius: 10px;
+      color: #fff;
+    }
+  }
+}
+@media all and (max-width: 768px) {
+  .product {
+    margin-right: 0;
+    .featured {
+      margin-top: 30px;
+      margin-bottom: 50px;
+    }
+  }
+}
+@media all and (max-width: 320px) {
+  .product {
+    width: 100%;
+    .text {
+      h2 {
+        font-size: 30px;
+      }
+    }
+    .tv {
+      ul {
+        li {
+          font-size: 13px;
+        }
+      }
+    }
+    .net {
+      ul {
+        li {
+          font-size: 13px;
+        }
+      }
+    }
+    .price {
+      .old-price {
+        display: flex;
+        flex-direction: column-reverse;
+        .old {
+          font-size: 15px;
+          line-height: 30px;
+          text-align: center;
+          display: block;
+          flex-direction: row-reverse;
+        }
+        .current {
+          margin: 0;
+          font-size: 22px;
+          line-height: 30px;
+          text-align: center;
+        }
+      }
+      .order {
+        font-size: 14px;
+      }
+    }
+    .promotions {
+      span {
+        margin: 0;
+        position: absolute;
+        bottom: 250px;
+        margin-left: 20px;
+      }
+    }
+  }
+}
+</style>

@@ -66,3 +66,17 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.home {
+  max-width: 1366px;
+  margin: 0 auto;
+  height: 100%;
+  h1 {
+    font-size: 40px;
+    color: #742d6c;
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+</style>
